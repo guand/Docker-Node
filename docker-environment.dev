@@ -1,0 +1,7 @@
+APP_HOST=http://local.test-app.com
+DB_USER=postgres
+DB_NAME=tapp_dev
+DB_PASSWORD=postgres
+DB_HOST=local.test-app.com
+APP_ENV=development
+APP_QUERY_LOGGING=ON

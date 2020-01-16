@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "0.0.1",
-  "description": "Generic appp",
+  "description": "Generic app",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -w src --exec \"babel-node --inspect src/app.js\"",
@@ -35,8 +35,10 @@
   "dependencies": {
     "axios": "^0.19.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.3.1",
+    "knex": "^0.20.8",
     "morgan": "^1.9.1",
     "pg": "^7.17.1",
     "underscore": "^1.9.2",

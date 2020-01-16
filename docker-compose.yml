@@ -8,6 +8,10 @@ services:
     image: node-dev
     container_name: node_server
     restart: on-failure
+    env_file:
+     - docker-environment.dev
+    command:
+     - ./docker-entrypoint-dev-app.sh
     volumes:
       - .:/home/node_user/
       - /home/node_user/node_modules
@@ -18,6 +22,23 @@ services:
     networks:
      - tapp_dev
 
+  db:
+    image: postgres:11-alpine
+    container_name: postgres
+    environment:
+     - POSTGRES_DB=tapp_dev
+    ports:
+     - "5432:5432"
+    networks:
+     - tapp_dev
+    volumes:
+     - db_data:/var/lib/postgresql/data
+
+
 networks:
   tapp_dev:
       name: tapp_dev
+
+volumes:
+  db_data:
+    name: tapp-db-data
