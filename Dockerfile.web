@@ -1,0 +1,17 @@
+FROM node:10-alpine
+
+RUN adduser --disabled-password --gecos '' node_user
+WORKDIR /home/node_user
+
+COPY package*.json ./
+
+RUN apk add --no-cache --virtual .gyp python make g++ \
+    && npm install \
+    && apk del .gyp
+
+COPY . .
+
+RUN chown -R node_user:node_user ./
+
+USER node_user
+CMD npm run dev

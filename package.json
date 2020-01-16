@@ -1,0 +1,45 @@
+{
+  "name": "node",
+  "version": "0.0.1",
+  "description": "Generic appp",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node --inspect src/app.js\"",
+    "build": "babel src -s -D -d dist",
+    "start": "forever start ./dist/app.js",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "bail": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
+    "testEnvironment": "node"
+  },
+  "author": "Jian Guan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-jest": "^24.8.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "jest": "^24.7.1",
+    "jsdoc": "^3.4.3",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.3.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.17.1",
+    "underscore": "^1.9.2",
+    "winston": "^3.2.1"
+  }
+}

@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  server:
+    build: 
+      context: .
+      dockerfile: Dockerfile.web
+    image: node-dev
+    container_name: node_server
+    restart: on-failure
+    volumes:
+      - .:/home/node_user/
+      - /home/node_user/node_modules
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "local.test-app.com:172.17.0.1"
+    networks:
+     - tapp_dev
+
+networks:
+  tapp_dev:
+      name: tapp_dev
